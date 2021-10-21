@@ -1,0 +1,195 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  font-size: 1rem;
+  line-height: 1.3;
+  --user-font-scale: 1rem - 16px;
+  font-size: clamp(0.875rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
+  --dark: #111827;
+  --lightdark: #161f30;
+  --light: #f9fafb;
+  --darklight: #eef3f7;
+  --primary: var(--dark);
+  --secondary: var(--light);
+  --offset-color: var(--darklight);
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+main {
+  padding: 4rem 4rem 2rem 4rem;
+  margin: 2rem auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.work > * + * {
+  margin-top: 2rem;
+}
+
+.work-container {
+  min-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(350px, 1fr));
+  grid-gap: 3rem;
+  justify-content: start;
+}
+
+.work-list {
+  padding-inline: 0.5rem;
+}
+
+.work-list > * + * {
+  margin-top: 0.75rem;
+}
+
+.work-card {
+  margin-bottom: 1rem;
+}
+
+.work-card > * + * {
+  margin-top: 1rem;
+}
+
+.work-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: attr(width) / attr(height);
+}
+
+a, a:visited, .storylink {
+  color: var(--primary) !important;
+  transition: color 0.3s ease-in-out !important;
+}
+
+a:hover {
+  color: tomato !important;
+}
+
+#r-body > * + * {
+  margin-top: 1rem;
+}
+
+.content-section > * + * {
+  margin-top: 0.5rem;
+}
+
+.content-section p, .job-list li {
+  max-width: 70ch;
+  line-height: 1.5em;
+  letter-spacing: 0.025em;
+}
+
+.job, .school, .social, .site {
+  background-color: var(--offset-color);
+  padding: 0.5rem;
+}
+
+.site-section {
+  visibility: hidden;
+}
+
+.job-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.school > * + * {
+  margin-top: 0.5rem;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+.main-side > * + *{
+  margin-top: 2rem;
+}
+
+.skill-list, .job-list {
+  list-style-type: none;
+  margin-block: 0.5rem;
+  margin-inline: 0.25rem;
+  padding: 0;
+}
+
+.skill-list li, .job-list li {
+  margin-block: 0.5rem;
+}
+
+.job-list li {
+  list-style-type: "- ";
+  margin-left: 0.5rem;
+}
+
+.article-container {
+  display: flex;flex-direction: column;
+}
+
+.article-container > * + * {
+  margin-top: 0.5rem;
+}
+
+.article-container a {
+  color: var(--primary);
+  font-size: 1.25rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: var(--light);
+    --secondary: var(--dark);
+    --offset-color: var(--lightdark);
+  }
+
+  a, a:visited {
+    color: var(--primary);
+    transition: color 0.3s ease-in-out;
+  }
+  
+  a:hover {
+    color: tomato;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    max-width: min(100%, 70rem);
+  }
+}
+
+@media print {
+  body {
+    background-color: #fff;
+    font-size: 12pt;
+  }
+  main {
+    min-width: 100%;
+    padding: 0;
+  }
+  .content {
+    width: 65%;
+  }
+  .social-content, .social {
+    display: none;
+  }
+  .site-section {
+    visibility: visible;
+  }
+  .site > * {
+    font-size: 0.8rem;
+  }
+}
